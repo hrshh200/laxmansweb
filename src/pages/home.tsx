@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { Star, ShoppingBag, Heart, Award, Truck, Phone, ArrowRight, ChefHat, Coffee, Gift, Mail, MapPin } from 'lucide-react';
@@ -79,7 +79,7 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addToRefs = (el:any) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
