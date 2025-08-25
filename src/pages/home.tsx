@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
+import StoreTimingsBanner from '../components/storetimingsbanner';
 import { Star, ShoppingBag, Heart, Award, Truck, Phone, ArrowRight, ChefHat, Coffee, Gift, Mail, MapPin } from 'lucide-react';
 import '../styles/home.css';
 
@@ -89,12 +90,13 @@ const Home = () => {
 
   return (
     <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+      <StoreTimingsBanner />
       <Navbar />
 
       {/* Hero Section */}
-      <section id="home" className="hero-section">
+      <section id="home" className="paan-section hero-section">
         <div className="hero-content">
-          <h1>Authentic Indian Street Food Experience</h1>
+          <h1>Laxman's - The Refreshment Shop</h1>
           <p>
             From traditional paan to spicy chaat and refreshing beverages - taste the real flavors of India
           </p>
@@ -109,9 +111,6 @@ const Home = () => {
         </div>
 
         {/* Floating Elements */}
-        <div className="float-icon float-1">🌶️</div>
-        <div className="float-icon float-2">🥘</div>
-        <div className="float-icon float-3">🍃</div>
       </section>
 
 

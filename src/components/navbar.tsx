@@ -1,67 +1,126 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ShoppingCart, Phone } from 'lucide-react';
-import '../styles/navbar.css';
+import { Search, ShoppingCart, User, Menu, X } from 'lucide-react';
+import '../styles/navbar.css'; // Import the external CSS file
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    console.log('Searching for:', searchQuery);
+  };
+
+  const handleAuthToggle = () => {
+    setIsSignedIn(!isSignedIn);
+  };
+
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          Laxman's
-        </div>
-
-        {/* Desktop Menu */}
-        <div className="navbar-menu hidden md:flex">
-          {['Home', 'Paan', 'Chaat', 'Beverages', 'Hampers', 'Reviews', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="navbar-link"
-            >
-              {item}
-            </a>
-          ))}
-          <div className="navbar-icons">
-            <ShoppingCart className="navbar-icon" />
-            <Phone className="navbar-icon" />
+          <div className="logo-icon">
+            <img src='../assets/icon.png' alt="Logo" />
           </div>
+          <span className="logo-text">Laxman's</span>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
+        <div className="navbar-search desktop-only">
+          <form onSubmit={handleSearch} className="search-form">
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
+            />
+            <button type="submit" className="search-btn">
+              <Search size={18} />
+            </button>
+          </form>
+        </div>
+
+        <div className="action-buttons">
+          {/* Profile Button */}
+          <button className="profile-btn">
+            <User size={24} />
+            {/* <span className="btn-label">Profile</span> */}
+          </button>
+
+          {/* Cart Button */}
+          <button className="cart-btn">
+            <ShoppingCart size={24} />
+            <span className="cart-count">3</span>
+          </button>
+        </div>
+
+        {/* <div className="navbar-actions desktop-only">
+          <button className="cart-btn">
+            <ShoppingCart size={24} />
+            <span className="cart-count">2</span>
+          </button>
+
+          <button
+            onClick={handleAuthToggle}
+            className="auth-btn"
+          >
+            <User size={20} />
+            <span>{isSignedIn ? 'Sign Out' : 'Sign In'}</span>
+          </button>
+        </div> */}
+
+        {/* <button
           onClick={() => setIsOpen(!isOpen)}
-          className="navbar-toggle md:hidden"
+          className="mobile-menu-btn"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </button> */}
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="navbar-mobile md:hidden">
-          {['Home', 'Paan', 'Chaat', 'Beverages', 'Hampers', 'Reviews', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="navbar-mobile-link"
-              onClick={() => setIsOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
+      <div className="mobile-search mobile-only">
+        <form onSubmit={handleSearch} className="search-form">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          <button type="submit" className="search-btn">
+            <Search size={18} />
+          </button>
+        </form>
+      </div>
+
+      {/* <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-inner">
+          <button className="mobile-cart">
+            <div className="cart-content">
+              <ShoppingCart size={24} />
+              <span>Cart</span>
+            </div>
+            <span className="cart-count">2</span>
+          </button>
+
+          <button
+            onClick={handleAuthToggle}
+            className="mobile-auth-btn"
+          >
+            <User size={24} />
+            <span>{isSignedIn ? 'Sign Out' : 'Sign In'}</span>
+          </button>
         </div>
-      )}
+      </div> */}
     </nav>
   );
 };

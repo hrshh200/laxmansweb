@@ -1,105 +1,268 @@
+/* General Navbar */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
+  z-index: 50;
+  background-color: #22543d;
+  /* green-800 */
   transition: all 0.3s ease;
-  padding: 1rem 0;
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(249, 115, 22, 0.8) 100%);
 }
 
-.navbar.scrolled {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.95) 0%, rgba(249, 115, 22, 0.95) 100%);
-  padding: 0.75rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+.navbar-scrolled {
+  background-color: rgba(20, 83, 45, 0.95);
+  /* green-900/95 */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
 }
 
 .navbar-container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #16a34a;
+  /* green-600 */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logo-text {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+
+/* Search Bar */
+.search-form {
+  position: relative;
+  width: 100vh;
+}
+
+.search-input {
+  width: 100vh;
+  height: 48px;
+  padding: 0 48px 0 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: rgba(187, 247, 208, 0.8);
+  /* green-200 */
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.6);
+  /* green-400 */
+}
+
+.search-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #16a34a;
+  /* green-600 */
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #22c55e;
+  /* green-500 */
+}
+
+/* Desktop Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+  padding: 8px;
+  color: rgba(187, 247, 208, 0.8);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mobile-menu-btn:hover {
+  color: white;
+  background-color: rgba(21, 128, 61, 0.5);
+}
+
+.mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background-color: rgba(20, 83, 45, 0.95);
+  border-top: 1px solid rgba(34, 197, 94, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  max-height: 240px;
+  opacity: 1;
+}
+
+.mobile-menu-inner {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-cart,
+.mobile-auth-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
-}
-
-.navbar-logo {
-  font-size: 1.75rem;
-  font-weight: bold;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  color: rgba(187, 247, 208, 0.8);
+  background-color: transparent;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.navbar-logo:hover {
+.mobile-cart:hover,
+.mobile-auth-btn:hover {
+  color: white;
+  background-color: rgba(21, 128, 61, 0.5);
+}
+
+.mobile-auth-btn {
+  background-color: #16a34a;
+  /* green-600 */
+  color: white;
+  font-weight: 500;
+}
+
+.mobile-auth-btn:hover {
+  background-color: #22c55e;
+  /* green-500 */
+}
+
+/* Responsive */
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Profile Button */
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #16a34a;
+  /* green-600 */
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.profile-btn:hover {
+  background-color: #22c55e;
+  /* green-500 */
   transform: scale(1.05);
 }
 
-.navbar-menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+.btn-label {
+  font-size: 14px;
 }
 
-.navbar-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-.navbar-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.navbar-icons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.navbar-icon {
-  color: white;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.navbar-icon:hover {
-  transform: scale(1.1);
-}
-
-.navbar-toggle {
-  color: white;
+/* Cart Button */
+.cart-btn {
+  position: relative;
+  padding: 12px;
   background: transparent;
+  color: rgba(187, 247, 208, 0.8);
+  /* green-200 */
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.navbar-mobile {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: linear-gradient(135deg, #DC2626 0%, #F97316 100%);
-  padding: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-mobile-link {
-  display: block;
+.cart-btn:hover {
   color: white;
-  text-decoration: none;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  background-color: rgba(21, 128, 61, 0.5);
+  /* green-700/50 */
 }
 
-.navbar-mobile-link:hover {
-  padding-left: 1rem;
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #34d399;
+  /* green-400 */
+  color: #064e3b;
+  /* green-900 */
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media (min-width: 768px) {
+  .desktop-only {
+    display: flex;
+  }
+
+  .mobile-only {
+    display: none;
+  }
 }
