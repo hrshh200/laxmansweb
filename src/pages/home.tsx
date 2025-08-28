@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import TimingsBanner from '../components/timingsBanner';  
+import TimingsBanner from '../components/timingsBanner';
+import GundiGulkand from '../assets/paan/GundiGulkand.jpeg';
+import Chocolate from '../assets/paan/chocolate.jpeg';
+import Lollipop from '../assets/paan/Lollipop.jpeg';
+import ChocolateCoatedPaan from '../assets/paan/chocolatecoated.jpeg';
+import SingharaMeetha from '../assets/paan/Singharameetha.jpeg';
 import { Star, ShoppingBag, Heart, Award, Truck, Phone, ArrowRight, ChefHat, Coffee, Gift, Mail, MapPin } from 'lucide-react';
 import '../styles/home.css';
 
@@ -60,32 +65,44 @@ const Home = () => {
   ];
 
   const paans = [
-                {
-                  name: 'Banarasi Special',
-                  price: '₹45',
-                  image:
-                    'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=600',
-                  description:
-                    'Traditional Banarasi paan with gulkand, coconut, and special spices',
-                  popular: true
-                },
-                {
-                  name: 'Chocolate Paan',
-                  price: '₹65',
-                  image:
-                    'https://images.pexels.com/photos/8844342/pexels-photo-8844342.jpeg?auto=compress&cs=tinysrgb&w=600',
-                  description: 'Modern twist with premium chocolate and dry fruits',
-                  popular: false
-                },
-                {
-                  name: 'Silver Paan',
-                  price: '₹85',
-                  image:
-                    'https://images.pexels.com/photos/5560756/pexels-photo-5560756.jpeg?auto=compress&cs=tinysrgb&w=600',
-                  description: 'Luxurious paan with silver leaf and exotic ingredients',
-                  popular: true
-                }
-              ];
+    {
+      name: 'Gundi Gulkand Paan',
+      price: '₹45',
+      image: GundiGulkand,
+      description:
+        'Traditional Banarasi paan with gulkand, coconut, and special spices',
+      popular: true
+    },
+    {
+      name: 'Chocolate Paan',
+      price: '₹65',
+      image: Chocolate,
+      description: 'Modern twist with premium chocolate and dry fruits',
+      popular: false
+    },
+    {
+      name: 'Lollipop Paan',
+      price: '₹85',
+      image: Lollipop,
+      description: 'Luxurious paan with silver leaf and exotic ingredients',
+      popular: true
+    },
+     {
+      name: 'Chocolate Coated Paan',
+      price: '₹45',
+      image: ChocolateCoatedPaan,
+      description:
+        'Traditional Banarasi paan with gulkand, coconut, and special spices',
+      popular: true
+    },
+    {
+      name: 'Singhara Meetha Paan',
+      price: '₹65',
+      image: SingharaMeetha,
+      description: 'Modern twist with premium chocolate and dry fruits',
+      popular: true
+    }
+  ];
 
 
   useEffect(() => {
@@ -136,7 +153,7 @@ const Home = () => {
 
           {/* Floating Elements */}
         </section>
-      
+
 
         {/* Paan Section */}
         <section id="paan" ref={addToRefs} data-section="paan" className="paan-section">
@@ -169,13 +186,17 @@ const Home = () => {
                       <span className="paan-price">{paan.price}</span>
                     </div>
                     <p className="paan-description">{paan.description}</p>
-                    <button className="paan-btn">
+                    {/* <button className="paan-btn">
                       Add to Cart <ShoppingBag size={18} />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               ))}
             </div>
+            <div className="explore-more-container">
+              <button className="explore-more-btn">Explore More</button>
+            </div>
+
           </div>
         </section>
 
@@ -519,9 +540,9 @@ const Home = () => {
                 <h3>Contact Information</h3>
                 <div className="contact-info-list">
                   {[
-                    { icon: <Phone size={24} />, title: 'Call Us', info: '+91 98765 43210', subtitle: 'Mon-Sun, 10 AM - 11 PM' },
-                    { icon: <Mail size={24} />, title: 'Email Us', info: 'info@spicepalace.com', subtitle: 'We reply within 2 hours' },
-                    { icon: <MapPin size={24} />, title: 'Visit Us', info: '123 Street Food Lane', subtitle: 'Spice Market, Mumbai 400001' }
+                    { icon: <Phone size={24} />, title: 'Call Us', info: '+91 8017644259', subtitle: 'Mon-Sun, 7 AM - 11 PM' },
+                    { icon: <Mail size={24} />, title: 'Email Us', info: 'info@laxmans.com', subtitle: 'We reply within 2 hours' },
+                    { icon: <MapPin size={24} />, title: 'Visit Us', info: '15 C Sarat Bose Road, Elgin', subtitle: 'Elgin, Kolkata 700020' }
                   ].map((contact, index) => (
                     <div className="contact-item" key={index}>
                       <div style={{ color: '#F97316' }}>{contact.icon}</div>
