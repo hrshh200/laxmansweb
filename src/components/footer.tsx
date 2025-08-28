@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-grid">
           {/* Brand Section */}
           <div className="footer-section animate-left">
-            <div className="footer-logo">🌶️ Spice Palace</div>
+            <div className="footer-logo">Laxman's</div>
             <p className="footer-description">
               Experience the authentic taste of traditional Indian street food with our premium paan, delicious chaat, and refreshing beverages.
             </p>
@@ -37,19 +37,19 @@ const Footer = () => {
             <div className="footer-contact">
               <div className="footer-contact-item">
                 <Phone size={18} className="footer-icon" />
-                <span>+91 98765 43210</span>
+                <span>+91 8017644259</span>
               </div>
               <div className="footer-contact-item">
                 <Mail size={18} className="footer-icon" />
-                <span>info@spicepalace.com</span>
+                <span>info@laxmans.com</span>
               </div>
               <div className="footer-contact-item">
                 <MapPin size={18} className="footer-icon" />
-                <span>123 Street Food Lane<br />Spice Market, Mumbai 400001</span>
+                <span>15 C, Sarat Bose Road, Elgin<br />Elgin, Kolkata 700020</span>
               </div>
               <div className="footer-contact-item">
                 <Clock size={18} className="footer-icon" />
-                <span>10:00 AM - 11:00 PM</span>
+                <span>7:00 AM - 1:00 AM(Night)</span>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p>© 2024 Spice Palace. All rights reserved. Made with ❤️ for food lovers.</p>
+          <p>© 1976 Laxmans. All rights reserved.</p>
           <div className="footer-bottom-links">
             {['Privacy Policy', 'Terms of Service', 'Sitemap'].map((link) => (
               <a key={link} href="#" className="footer-bottom-link">

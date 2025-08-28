@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Search, ShoppingCart, User, Menu, X } from 'lucide-react';
+import { Search, ShoppingCart, User, Menu, X, icons } from 'lucide-react';
+import Icon from '../assets/icon2.png';
 import '../styles/navbar.css'; // Import the external CSS file
 
 const Navbar = () => {
@@ -29,10 +30,9 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <div className="logo-icon">
-            <img src='../assets/icon.png' alt="Logo" />
+          <div className="logo-icon"> 
+           <img src={Icon} alt="Logo" className="logo-image" width={68} height={68} />
           </div>
-          <span className="logo-text">Laxman's</span>
         </div>
 
         <div className="navbar-search desktop-only">

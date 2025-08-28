@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
+import TimingsBanner from '../components/timingsBanner';  
 import { Star, ShoppingBag, Heart, Award, Truck, Phone, ArrowRight, ChefHat, Coffee, Gift, Mail, MapPin } from 'lucide-react';
 import '../styles/home.css';
 
@@ -58,6 +59,34 @@ const Home = () => {
     { number: '99%', label: 'Customer Satisfaction' },
   ];
 
+  const paans = [
+                {
+                  name: 'Banarasi Special',
+                  price: '₹45',
+                  image:
+                    'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=600',
+                  description:
+                    'Traditional Banarasi paan with gulkand, coconut, and special spices',
+                  popular: true
+                },
+                {
+                  name: 'Chocolate Paan',
+                  price: '₹65',
+                  image:
+                    'https://images.pexels.com/photos/8844342/pexels-photo-8844342.jpeg?auto=compress&cs=tinysrgb&w=600',
+                  description: 'Modern twist with premium chocolate and dry fruits',
+                  popular: false
+                },
+                {
+                  name: 'Silver Paan',
+                  price: '₹85',
+                  image:
+                    'https://images.pexels.com/photos/5560756/pexels-photo-5560756.jpeg?auto=compress&cs=tinysrgb&w=600',
+                  description: 'Luxurious paan with silver leaf and exotic ingredients',
+                  popular: true
+                }
+              ];
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,8 +119,8 @@ const Home = () => {
   return (
     <>
       <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+        <TimingsBanner />
         <Navbar />
-       
         {/* Hero Section */}
         <section id="home" className="hero-section">
           <div className="hero-content">
@@ -107,32 +136,7 @@ const Home = () => {
 
           {/* Floating Elements */}
         </section>
-        {/* Features Section */}
-        {/* <section className="features-section">
-          <div className="features-container">
-            <div className="features-grid">
-              {[
-                { icon: <Award size={40} />, title: 'Premium Quality', desc: 'Finest ingredients sourced directly from authentic suppliers' },
-                { icon: <Truck size={40} />, title: 'Fast Delivery', desc: 'Fresh food delivered hot to your doorstep within 30 minutes' },
-                { icon: <Heart size={40} />, title: 'Made with Love', desc: 'Traditional recipes passed down through generations' },
-                { icon: <Star size={40} />, title: '5-Star Rated', desc: 'Loved by thousands of customers across the city' }
-              ].map((feature, index) => (
-                <div
-                  key={index}
-                  className={`feature-card ${isVisible(`feature-${index}`) ? 'visible' : ''}`}
-                  ref={addToRefs}
-                  data-section={`feature-${index}`}
-                >
-                  <div className="feature-icon">{feature.icon}</div>
-                  <h3>{feature.title}</h3>
-                  <p>{feature.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
-
+      
 
         {/* Paan Section */}
         <section id="paan" ref={addToRefs} data-section="paan" className="paan-section">
@@ -144,7 +148,7 @@ const Home = () => {
                 opacity: isVisible('paan') ? 1 : 0
               }}
             >
-              <h2>🌿 Premium Paan Collection</h2>
+              <h2>Premium Paan Collection</h2>
               <p>
                 Experience the rich tradition of authentic Indian paan with our carefully
                 crafted varieties
@@ -152,33 +156,7 @@ const Home = () => {
             </div>
 
             <div className="paan-grid">
-              {[
-                {
-                  name: 'Banarasi Special',
-                  price: '₹45',
-                  image:
-                    'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=600',
-                  description:
-                    'Traditional Banarasi paan with gulkand, coconut, and special spices',
-                  popular: true
-                },
-                {
-                  name: 'Chocolate Paan',
-                  price: '₹65',
-                  image:
-                    'https://images.pexels.com/photos/8844342/pexels-photo-8844342.jpeg?auto=compress&cs=tinysrgb&w=600',
-                  description: 'Modern twist with premium chocolate and dry fruits',
-                  popular: false
-                },
-                {
-                  name: 'Silver Paan',
-                  price: '₹85',
-                  image:
-                    'https://images.pexels.com/photos/5560756/pexels-photo-5560756.jpeg?auto=compress&cs=tinysrgb&w=600',
-                  description: 'Luxurious paan with silver leaf and exotic ingredients',
-                  popular: true
-                }
-              ].map((paan, index) => (
+              {paans.map((paan, index) => (
                 <div key={index} className="paan-card">
                   {paan.popular && <div className="paan-popular-badge">POPULAR</div>}
                   <div
