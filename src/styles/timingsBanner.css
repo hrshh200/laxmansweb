@@ -1,11 +1,12 @@
 .timings-banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  color: white;
-background: linear-gradient(90deg, #064e3b);
-  padding: 8px;
-  text-align: center;
-  z-index: 60; /* higher than navbar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background: linear-gradient(90deg, #064e3b);
+    padding: 8px;
+    text-align: center;
+    z-index: 60;
+    /* higher than navbar */
 }

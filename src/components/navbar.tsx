@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Search, ShoppingCart, User, Menu, X, icons } from 'lucide-react';
+import SearchInput from './SearchInput';
 import Icon from '../assets/icon2.png';
 import '../styles/navbar.css'; // Import the external CSS file
 
@@ -37,13 +38,14 @@ const Navbar = () => {
 
         <div className="navbar-search desktop-only">
           <form onSubmit={handleSearch} className="search-form">
-            <input
+            {/* <input
               type="text"
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
-            />
+            /> */}
+            <SearchInput />
             <button type="submit" className="search-btn">
               <Search size={18} />
             </button>
