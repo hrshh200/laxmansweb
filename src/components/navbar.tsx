@@ -31,8 +31,8 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <div className="logo-icon"> 
-           <img src={Icon} alt="Logo" className="logo-image" width={68} height={68} />
+          <div className="logo-icon" onClick={() => window.location.href = '/'}> 
+           <img src={Icon} alt="Logo" className="logo-image" width={68} height={68}/>
           </div>
         </div>
 

@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="footer-section animate-right">
             <h3 className="footer-heading">Quick Links</h3>
             {['Home', 'Our Menu', 'Paan Collection', 'Chaat Varieties', 'Fresh Beverages', 'Gift Hampers'].map((link) => (
-              <a key={link} href="#" className="footer-link">
+              <a key={link} href="/" className="footer-link">
                 {link}
               </a>
             ))}
@@ -76,7 +76,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p>© 1976 Laxmans. All rights reserved.</p>
+          <p>© 2025 Laxmans. All rights reserved.</p>
           <div className="footer-bottom-links">
             {['Privacy Policy', 'Terms of Service', 'Sitemap'].map((link) => (
               <a key={link} href="#" className="footer-bottom-link">
